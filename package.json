@@ -2,6 +2,7 @@
   "name": "yarn",
   "version": "yarn i",
   "private": true,
+  "homepage": "https://Bologamaxim.github.io/homework-front",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
