@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { UserList2 } from './UserList2';
+import {log} from "node:util";
+import {type} from "node:os";
 
 export type AddressType = {
   street: string;
@@ -10,12 +12,11 @@ export type UserType = {
   id: number;
   name: string;
   age: number;
-  address: any; // пропиши типизацию
+  address: AddressType; // пропиши типизацию
 };
 
-export type UsersObjectType = {
-  myFriends: any; // пропиши типизацию
-};
+
+export type UserObjectType = { myFriends: Array<UserType>}
 
 export const HW2 = () => {
 
@@ -29,7 +30,7 @@ export const HW2 = () => {
 
   // ❗ Массив с данными не трогаем!
 
-  const users = {
+  const users: UserObjectType= {
     myFriends:[
       { id: 1, name: 'John', age: 25, address: { street: '123 Main St', city: 'New York' } },
       { id: 2, name: 'Alice', age: 30, address: { street: '456 Elm St', city: 'San Francisco' } },
@@ -44,13 +45,13 @@ export const HW2 = () => {
     ]
   }
 
-  let [currentUsers, setCurrentUsers] = useState<UsersObjectType>(users);
+
+  let [currentUsers, setCurrentUsers] = useState<UserObjectType>(users);
 
   const filterUsers = () => {
-    const filteredUsers = 'НУЖНО ПРОФИЛЬТРОВАТЬ ДРУЗЕЙ. ОСТАВЛЯЕМ ТОЛЬКО ТЕХ, КОТОРЫЕ ЖИВУТ В ГОРОДЕ LOS ANGELES';
-    setCurrentUsers({ myFriends: filteredUsers });
+    const filteredUsers= users.myFriends.filter(i=>i.address.city==='Los Angeles')
+    setCurrentUsers({myFriends: filteredUsers});
   };
-
   return (
     <div id={'hw02'}>
       <UserList2 users={currentUsers} filterUsers={filterUsers} />
