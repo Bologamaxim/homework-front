@@ -46,6 +46,7 @@ export const HW2 = () => {
   }
 
 
+
   let [currentUsers, setCurrentUsers] = useState<UserObjectType>(users);
 
   const filterUsers = () => {
@@ -53,6 +54,7 @@ export const HW2 = () => {
     setCurrentUsers({myFriends: filteredUsers});
   };
   return (
+
     <div id={'hw02'}>
       <UserList2 users={currentUsers} filterUsers={filterUsers} />
     </div>
