@@ -4,11 +4,11 @@ type InputPropsType = {
 };
 
 export const Input = (props: InputPropsType) => {
-	const onChangeHandler = (event: 'НУЖНО ПРОТИПИЗИРОВАТЬ') => {
-		// НУЖНО ДОПИСАТЬ
+	const onChangeHandler = (event:any) => {
+		props.setCurrentText(event.target.value)
 	};
 
-	// return (
-	//   <input id={'hw04-input'} type="text" value={props.currentText} onChange={onChangeHandler} />
-	// );
+	return (
+	  <input id={'hw04-input'} type="text" value={props.currentText} onChange={onChangeHandler} />
+	);
 };
